@@ -17,6 +17,18 @@ class UserController {
       provider,
     });
   }
+
+  async index(req, res) {
+    const users = await User.findAll();
+
+    const usersDto = users.map((user) => {
+      return { name: user.name, email: user.email };
+    });
+
+    return res.json({
+      users: usersDto,
+    });
+  }
 }
 
 export default new UserController();
