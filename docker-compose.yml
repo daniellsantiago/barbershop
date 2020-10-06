@@ -1,8 +1,8 @@
 version: '3.1'
 services:
-  db:
+  postgres:
     image: postgres:11
-    container_name: barbershop-db
+    container_name: barbershop-db-postgres
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root
@@ -10,5 +10,13 @@ services:
       - "5432:5432"
     volumes:
       - barbershop-data:/var/lib/postgresql/data
+  mongo: 
+    image: mongo
+    container_name: barbershop-db-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - barbershop-mongo-data:/data/db
 volumes:
   barbershop-data:
+  barbershop-mongo-data:
