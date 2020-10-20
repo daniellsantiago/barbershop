@@ -1,12 +1,14 @@
+import 'dotenv/config';
+
 export default {
-  host: 'smtp.mailtrap.io',
-  port: 2525,
-  secure: false,
+  host: process.env.MAIL_HOST,
+  port: process.env.MAIL_PORT,
+  secure: process.env.MAIL_SECURE,
   auth: {
-    user: '431ec90442400b',
-    pass: '4db781ffaaebc2',
+    user: process.env.MAIL_USER,
+    pass: process.env.MAIL_PASS,
   },
   default: {
-    from: 'Barbershop Team <noreply@barbershop.com',
+    from: process.env.MAIL_FROM,
   },
 };
